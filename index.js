@@ -8,12 +8,16 @@ const vm = new Vue({
         squareMapping: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
         sequence: [],
         tmp: [],
-        score: 0,
+    },
+    computed: {
+        score() {
+            const value = this.sequence.length - 1;
+            return (value < 0) ? `Score : 0` : `Score : ${value}`;
+        }
     },
     methods: {
         newGame() {
             this.sequence = [];
-            this.score    = 0;
             this.nextTurn();    
         },
         nextTurn() {
@@ -29,9 +33,9 @@ const vm = new Vue({
             this.topLeft = this.topRight = this.bottomLeft = this.bottomRight = false;
         },
         playSequence(square) {
-            setTimeout(function () {
+            setTimeout(() => {
                 vm[square] = true;
-                setTimeout(function () {
+                setTimeout(() => {
                   vm.disableAllSquare();
                   vm.tmp.shift();
                   if (vm.tmp[0]) {
@@ -45,11 +49,10 @@ const vm = new Vue({
         clickSquare(square) {
             if (square === this.tmp[0]) {
                 vm[square] = true;
-                setTimeout(function() {
+                setTimeout(() => {
                   vm.disableAllSquare();
                   vm.tmp.shift();
                   if (!vm.tmp[0]) {
-                        vm.score++;
                         vm.nextTurn();
                     }
                 }, 250);
