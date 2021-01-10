@@ -26,10 +26,7 @@ const vm = new Vue({
             this.tmp = this.sequence.slice();
         },
         disableAllSquare() {
-            this.topLeft = false;
-      this.topRight = false,
-        this.bottomLeft = false,
-        this.bottomRight = false
+            this.topLeft = this.topRight = this.bottomLeft = this.bottomRight = false;
         },
         playSequence(square) {
             setTimeout(function () {
