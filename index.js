@@ -26,7 +26,6 @@ const vm = new Vue({
             this.tmp = this.sequence.slice();
         },
         disableAllSquare() {
-            //this.topLeft = this.topRight = this.bottomLeft = this.bottomRight = false;
             this.topLeft = false;
       this.topRight = false,
         this.bottomLeft = false,
