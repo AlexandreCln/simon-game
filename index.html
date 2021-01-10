@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - Simon</title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="newGame">New Game</button>
+
+        <hr>
+
+        Score : {{ score }}
+
+        <hr>
+
+        <div>
+            <span class="square" @click="clickSquare('topLeft')" :class="{ blue : topLeft }"></span>
+            <span class="square" @click="clickSquare('topRight')" :class="{ red : topRight }"></span>
+        </div>
+        <div>
+            <span class="square" @click="clickSquare('bottomLeft')" :class="{ green : bottomLeft }"></span>
+            <span class="square" @click="clickSquare('bottomRight')" :class="{ yellow : bottomRight }"></span>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./index.js" ></script>
+</body>
+</html>
